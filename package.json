@@ -1,0 +1,22 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "A simple website for playing tic tac toe game",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RajaSai3/tic-tac-toe.git"
+  },
+  "author": "Raja Sai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RajaSai3/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/RajaSai3/tic-tac-toe#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}

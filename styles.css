@@ -1,0 +1,22 @@
+.cell{
+  height: 5rem;
+  width: 5rem;
+  margin: 5px;
+  background-color: purple;
+  border-radius: 15px;
+  display :inline-block;
+}
+
+.cell:hover{
+  background-color: blue;
+  cursor: not-allowed;
+}
+
+table {
+  border-collapse: collapse;
+  border-style: hidden;
+}
+table td {
+  border: 5px solid black;
+
+}
