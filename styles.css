@@ -5,6 +5,7 @@
   background-color: purple;
   border-radius: 15px;
   display :inline-block;
+  text-align: center;
 }
 
 .cell:hover{
@@ -19,4 +20,35 @@ table {
 table td {
   border: 5px solid black;
 
+}
+
+body{
+  background-color: orange;
+  margin-top: 70px;
+}
+
+.navbar-button{
+  margin: auto 0 auto auto;
+}
+
+.main-area{
+  margin-top: 100px;
+  text-align: center;
+  border-color: blue;
+  /* border-bottom: 2px black; */
+}
+
+
+/* cell{
+  height: 5px;
+  width: 5px;
+  border-radius: 25px;
+  display: inline;
+  cursor: crosshair;
+  font-size: large;
+  color: white;
+} */
+
+.content{
+  padding:50px;
 }

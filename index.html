@@ -13,51 +13,126 @@
   </head>
   <body>
 
-    <div class="container-fluid" style=" background-color: blue;">
+    <nav class="navbar navbar-dark fixed-top text-white bg-dark navbar-expand">
+      <h1>Tic Tac Toe</h1>
+
+      <button class="btn btn-outline-warning navbar-button">
+        Colour Palette
+      </button> 
+    </nav>
+    
+    <div class="container ">
+      <div class="main-area border border-white">
+        <!-- <h1 class="main-heading">Tic Tac Toe</h1>
+        <input type="radio" name="playermode" id="P1mode">
+        <label for="P1mode"> 1P </label>
+        <input type="radio" name="playermode" id="P2mode">
+        <label for="P2mode"> 2P </label> -->
+      <div class="row content">
+        <h1 class="col-12">Tic Tac Toe</h1>
+      </div>
+      
+      <div class="row content">
+        <div class="btn-group btn-group-toggle m-auto col-4" data-toggle="buttons">
+          <label for="1P" class="btn btn-primary active">
+            <input type="radio" name="playermode" id="1P" autocomplete="off" checked>1P
+          </label>
+          <label for="2P" class="btn btn-primary">
+            <input type="radio" name="playermode" id="2P" autocomplete="off">2P
+          </label>
+        </div>
+      </div>
+      
+
+      </div>
+    </div>
+    
+    <!-- <div class="radio-group">
+      <div class="radio cell">1P</div>1P
+      <div class="radio cell">2P</div>2P
+    </div> -->
+
+
+
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <h1>Hello World</h1>
+    <div class="container">
+      <h1>Tic Tac Toe</h1>
       <div class="row">
+        <div class="col-12 col-sm-4 offset-sm-2 align-items-center"></div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-4 offset-sm-2 align-items-center"></div>
+      </div>
+    </div>
+
+    <div class="container-fluid" style=" background-color: blue;">
+
+      <div class="row">
+        <div class="col-12 col-sm-6 col-lg-4"></div>
+        <div class="col-12 col-sm-6 col-lg-4"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-sm-4"></div>
+        <div class="col-12 col-sm-4"></div>
+      </div>
+
+      <!-- <div class="row"> -->
         <div class="col-sm-6 col-lg-4 mx-auto align-items-center" id="main-board">
           <table bordercolor="white">
 
           <tr>
             <td>
-              <div class="cell"><i class="fa fa-times fa-5x" aria-hidden="true"></i></div>
+              <div class="cell" id="cell1"><i class="fa fa-times fa-5x" aria-hidden="true"></i></div>
             </td>
             <td>
-              <div class="cell"><i class="fa fa-circle-o fa-5x" aria-hidden="true"></i></div>
+              <div class="cell" id="cell2"><i class="fa fa-circle-o fa-5x" aria-hidden="true"></i></div>
             </td>
             <td>
-              <div class="cell"></div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="cell"></div>
-            </td>
-            <td>
-              <div class="cell"></div>
-            </td>
-            <td>
-              <div class="cell"></div>
+              <div class="cell" id="cell3"></div>
             </td>
           </tr>
 
           <tr>
             <td>
-              <div class="cell"></div>
+              <div class="cell" id="cell4"></div>
             </td>
             <td>
-              <div class="cell"></div>
+              <div class="cell" id="cell5"></div>
             </td>
             <td>
-              <div class="cell"></div>
+              <div class="cell" id="cell6"></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="cell" id="cell7"></div>
+            </td>
+            <td>
+              <div class="cell" id="cell8"></div>
+            </td>
+            <td>
+              <div class="cell" id="cell9"></div>
             </td>
           </tr>
 
 
 
         </div>
-      </div>
+      <!-- </div> -->
     </div>
     <!-- JS CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
