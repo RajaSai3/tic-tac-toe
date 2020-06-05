@@ -13,11 +13,11 @@
   cursor: not-allowed;
 }
 
-table {
+.main-table {
   border-collapse: collapse;
   border-style: hidden;
 }
-table td {
+.main-table .main-td {
   border: 5px solid black;
 
 }
@@ -25,6 +25,10 @@ table td {
 body{
   background-color: orange;
   margin-top: 70px;
+}
+
+.navbar{
+  background-color: #292b2c;
 }
 
 .navbar-button{
@@ -39,7 +43,7 @@ body{
 }
 
 
-/* cell{
+/* cell-mode{
   height: 5px;
   width: 5px;
   border-radius: 25px;
@@ -51,4 +55,64 @@ body{
 
 .content{
   padding:50px;
+}
+
+.score-board{
+  margin: 25px auto;
+  padding: 20px;
+}
+
+.score-cell{
+  background-color: whitesmoke;
+  border-radius: 25px;
+}
+
+.score-value{
+  font-size: 3.5rem;
+}
+
+.score-cell-selected{
+  background-color: teal;
+  border-radius: 25px;
+  box-shadow: 0.5rem .5rem .5rem grey;
+  text-align: left;
+  color: white;
+}
+
+.popover{
+  height: 280px;
+  width: 450px;
+}
+
+.popover-table, .popover-table-th, .popover-table-td{
+  border: 10px black;
+}
+
+.popover-th{
+  width: 33%;
+}
+
+.popover-image-selected{
+
+  border: 100px blue;
+  border-radius: 25px;
+}
+
+.colour-palette{
+  background-color: #f7f7f7;
+  margin-top: 4.52rem;
+}
+
+.colour{
+  margin: 1rem 1rem;
+}
+
+
+.player{
+  border-style: dotted;
+  border-color: white;
+  /* border-width: thick; */
+  border-radius: 30px;
+  height: 10rem;
+  width: 10rem;
 }
