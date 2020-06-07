@@ -14,11 +14,11 @@
   <body>
 
     <nav class="navbar navbar-dark fixed-top text-white navbar-expand mb-1">
-      <h1>Tic Tac Toe</h1>
+      <h1 id="navbarHeading">Tic Tac Toe</h1>
 
       <!-- <a href="#" tabindex="0" role="button" class="btn btn-outline-warning navbar-button" data-container="body" data-toggle="popover"
        data-placement="bottom" title="Choose any colour" id="button"> -->
-       <button class="btn btn-outline-warning navbar-button" data-toggle="collapse" data-target="#popoverColoursTable">
+       <button class="btn btn-outline-warning navbar-button" data-toggle="collapse" data-target="#popoverColoursTable" id="navButton">
         Colour Palette
        </button> 
       
@@ -102,7 +102,7 @@
     
 
     <div class="container">
-      <div class="row content main-area border border-white rounded">
+      <div class="row content main-area" id="mainArea">
         
         <!-- <h1 class="main-heading">Tic Tac Toe</h1>
         <input type="radio" name="playermode" id="P1mode">
@@ -114,14 +114,14 @@
       <!-- </div>
       
       <div class="row content"> -->
-        <h3 class="col-12">Select game mode</h3>
+        <h3 class="col-12" id="selectMode">Select game mode</h3>
 
         <!-- fiddle start -->
         <div class="row mx-auto mt-5">
-         <div class="player mr-1">
+         <div class="player selected-dark box-shadow-left mr-1" name="P1" id="P1">
            <h1 class="pt-5">1P</h1>
          </div>
-        <div class="player ml-1">
+        <div class="player ml-1" name="P2" id="P2">
           <h1 class="pt-5">2P</h1>
         </div>
         </div>
@@ -144,8 +144,8 @@
 
       </div>
 
-      <div class="score-board">
-        <h3 class="text-center content font-weight-bold">Scores</h3>
+      <div class="score-board text-center content" id="scoreBoard">
+        <h2 class="content font-weight-bold">Scores</h2>
         <div class="row">
           <div class="col-6 col-sm-4 offset-sm-2">
             <div class="score-cell">
@@ -165,7 +165,7 @@
           
           
           <div class="col-6 col-sm-4">
-            <div class="score-cell score-cell-selected">
+            <div class="score-cell-selected">
               <div class="row">
                 
                 <div class="offset-2 col-4 mr-0">
@@ -214,9 +214,9 @@
       </div> 
       </div>-->
 
-      <div class="row game-board content">
-        <div class="col-sm-6 col-lg-4 mx-auto" id="main-board">
-          <table class="main-table">
+      <div class="row game-board content" id="gameBoard">
+        <!-- <div class="col-sm-6 col-lg-4" id="mainBoard"> -->
+          <table class="main-table mx-auto">
 
           <tr>
             <td class="main-td">
@@ -256,7 +256,7 @@
 
 
 
-        </div>
+        <!-- </div> -->
       </div>
     </div>
     <!-- </div> -->

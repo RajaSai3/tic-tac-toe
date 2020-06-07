@@ -18,13 +18,15 @@
   border-style: hidden;
 }
 .main-table .main-td {
-  border: 5px solid black;
-
+  border-style: solid;
+  border-width: thick;
+  border-color: black;
 }
 
 body{
   background-color: orange;
   margin-top: 70px;
+  
 }
 
 .navbar{
@@ -38,8 +40,11 @@ body{
 .main-area{
   margin-top: 100px;
   text-align: center;
-  border-color: blue;
-  /* border-bottom: 2px black; */
+  border-style: solid;
+  border-color: white;
+  border-width: thick;
+  border-radius: 50px;
+  color: black;
 }
 
 
@@ -60,43 +65,32 @@ body{
 .score-board{
   margin: 25px auto;
   padding: 20px;
+  color: black;
 }
 
 .score-cell{
   background-color: whitesmoke;
+    border-style: solid;
+  border-color: black;
+  border-width: thin;
+  color: black;
   border-radius: 25px;
 }
 
 .score-value{
   font-size: 3.5rem;
+
 }
 
 .score-cell-selected{
   background-color: teal;
-  border-radius: 25px;
+  border-style: hidden;
   box-shadow: 0.5rem .5rem .5rem grey;
   text-align: left;
   color: white;
-}
-
-.popover{
-  height: 280px;
-  width: 450px;
-}
-
-.popover-table, .popover-table-th, .popover-table-td{
-  border: 10px black;
-}
-
-.popover-th{
-  width: 33%;
-}
-
-.popover-image-selected{
-
-  border: 100px blue;
   border-radius: 25px;
 }
+
 
 .colour-palette{
   background-color: #f7f7f7;
@@ -105,14 +99,58 @@ body{
 
 .colour{
   margin: 1rem 1rem;
+  cursor: pointer;
 }
 
+.colour:hover{
+  border-style: dotted;
+  border-color: black;
+  border-width: thick;
+  border-radius: 25px;
+  
+}
+
+/* .border{
+    border-style: solid;
+  border-width: thick;
+  border-radius: 25px;
+} */
 
 .player{
-  border-style: dotted;
+  border-style: solid;
   border-color: white;
+  color: white;
   /* border-width: thick; */
   border-radius: 30px;
   height: 10rem;
   width: 10rem;
+  cursor: pointer;
+}
+
+.selected{
+  /* background-color: blue; */
+  /* border-color: black;*/
+/* background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */ 
+
+
+}
+
+.selected-dark{ 
+  color: black; 
+  background-image: rgba(216,225,231,1);
+  background-image: -moz-linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
+  background-image: linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8e1e7', endColorstr='#e0eff9', GradientType=1 );
+  border-style: hidden;
+}
+
+.box-shadow-left{
+  box-shadow: -0.5rem .5rem .5rem grey;
+}
+
+.box-shadow-right{
+  box-shadow: 0.5rem .5rem .5rem grey;
 }
