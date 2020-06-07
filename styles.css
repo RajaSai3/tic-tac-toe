@@ -10,7 +10,7 @@
 
 .cell:hover{
   background-color: blue;
-  cursor: not-allowed;
+  cursor: pointer;
 }
 
 .main-table {
@@ -68,7 +68,7 @@ body{
   color: black;
 }
 
-.score-cell{
+.score-cell-unselected{
   background-color: whitesmoke;
     border-style: solid;
   border-color: black;
@@ -85,11 +85,11 @@ body{
 .score-cell-selected{
   background-color: teal;
   border-style: hidden;
-  box-shadow: 0.5rem .5rem .5rem grey;
   text-align: left;
   color: white;
   border-radius: 25px;
 }
+
 
 
 .colour-palette{
@@ -117,25 +117,26 @@ body{
 } */
 
 .player{
-  border-style: solid;
-  border-color: white;
-  color: white;
-  /* border-width: thick; */
-  border-radius: 30px;
+ 
   height: 10rem;
   width: 10rem;
-  cursor: pointer;
+  border-radius: 30px;
 }
 
-.selected{
+.player-unselected{
   /* background-color: blue; */
   /* border-color: black;*/
 /* background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */ 
-
-
+  border-style: solid;
+  border-color: white;
+  color: white;
+  cursor: pointer;
 }
 
-.selected-dark{ 
+.player-selected{ 
+
+  /* border-radius: 30px; */
+  border-style: hidden;
   color: black; 
   background-image: rgba(216,225,231,1);
   background-image: -moz-linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
@@ -144,7 +145,7 @@ body{
   background: -ms-linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
   background-image: linear-gradient(45deg, rgba(216,225,231,1) 0%, rgba(216,225,231,1) 20%, rgba(242,246,248,1) 29%, rgba(216,225,231,1) 38%, rgba(181,198,208,1) 71%, rgba(224,239,249,1) 85%, rgba(224,239,249,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8e1e7', endColorstr='#e0eff9', GradientType=1 );
-  border-style: hidden;
+  
 }
 
 .box-shadow-left{

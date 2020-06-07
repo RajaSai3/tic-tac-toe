@@ -118,7 +118,7 @@
 
         <!-- fiddle start -->
         <div class="row mx-auto mt-5">
-         <div class="player selected-dark box-shadow-left mr-1" name="P1" id="P1">
+         <div class="player mr-1" name="P1" id="P1">
            <h1 class="pt-5">1P</h1>
          </div>
         <div class="player ml-1" name="P2" id="P2">
@@ -148,28 +148,31 @@
         <h2 class="content font-weight-bold">Scores</h2>
         <div class="row">
           <div class="col-6 col-sm-4 offset-sm-2">
-            <div class="score-cell">
+
+             <!-- X Scorecard -->
+
+            <div id="scoreX">
               <div class="row">
                 <div class="col-4 ml-5">
                   <i class="fa fa-times fa-5x" aria-hidden="true"></i>
                 </div>
 
                 <div class="offset-2 col-4 mr-0 order-sm-last">
-                  <span id="scoreX" class="score-value">3</span>
+                  <span class="score-value">3</span>
                 </div>
               </div>
             </div>
 
           </div>
           
-          
+          <!-- Y ScoreCard -->
           
           <div class="col-6 col-sm-4">
-            <div class="score-cell-selected">
+            <div id="scoreO">
               <div class="row">
                 
                 <div class="offset-2 col-4 mr-0">
-                  <span id="scoreX" class="score-value">3</span>
+                  <span class="score-value">3</span>
                 </div>
                 
                 <div class="col-4 ml-5">
@@ -220,37 +223,37 @@
 
           <tr>
             <td class="main-td">
-              <div class="cell" id="cell1"><i class="fa fa-times fa-5x" aria-hidden="true"></i></div>
+              <div class="cell" id="cell1"><i></i></div>
             </td>
             <td class="main-td">
-              <div class="cell" id="cell2"><i class="fa fa-circle-o fa-5x" aria-hidden="true"></i></div>
+              <div class="cell" id="cell2"><i></i></div>
             </td>
             <td class="main-td">
-              <div class="cell" id="cell3"></div>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="main-td">
-              <div class="cell" id="cell4"></div>
-            </td>
-            <td class="main-td">
-              <div class="cell" id="cell5"></div>
-            </td>
-            <td class="main-td">
-              <div class="cell" id="cell6"></div>
+              <div class="cell" id="cell3"><i></i></div>
             </td>
           </tr>
 
           <tr>
             <td class="main-td">
-              <div class="cell" id="cell7"></div>
+              <div class="cell" id="cell4"><i></i></div>
             </td>
             <td class="main-td">
-              <div class="cell" id="cell8"></div>
+              <div class="cell" id="cell5"><i></i></div>
             </td>
             <td class="main-td">
-              <div class="cell" id="cell9"></div>
+              <div class="cell" id="cell6"><i></i></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="main-td">
+              <div class="cell" id="cell7"><i></i></div>
+            </td>
+            <td class="main-td">
+              <div class="cell" id="cell8"><i></i></div>
+            </td>
+            <td class="main-td">
+              <div class="cell" id="cell9"><i></i></div>
             </td>
           </tr>
 
