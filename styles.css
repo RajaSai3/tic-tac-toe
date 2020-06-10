@@ -2,14 +2,14 @@
   height: 5rem;
   width: 5rem;
   margin: 5px;
-  background-color: purple;
+  /* background-color: purple; */
   border-radius: 15px;
   display :inline-block;
   text-align: center;
 }
 
 .cell:hover{
-  background-color: blue;
+  /* background-color: blue; */
   cursor: pointer;
 }
 

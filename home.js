@@ -41,6 +41,16 @@ var navbar_colour,body_colour;
 var gameOver = true;
 var cellsClicked = [];
 var cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
+var scoreX = 0, scoreO = 0;
+
+updateScore();
+
+$("#resetScore").on("click",function(){
+    scoreX = 0;
+    scoreO = 0;
+    updateScore();
+
+});
 
 $("img.colour").on("click", function (){
     $(this).addClass("border border-primary rounded-lg").siblings().removeClass("border border-primary rounded-lg");
@@ -62,7 +72,7 @@ $("img.colour").on("click", function (){
 $("#P1").addClass("player-unselected");
 $("#P2").addClass("player-unselected");
 $("#scoreX").addClass("score-cell-unselected");
-$("#scoreO").addClass("score-cell-unselected");
+$("#scoreO").addClass("score-cell-selected box-shadow-right");
 $("#scoreBoard").hide();
 $("#gameBoard").hide();
 var firstClickOnPlayer = true;
@@ -92,6 +102,7 @@ $(".player").on("click",function()
         // var clickedID = "#P1";
         console.log("----------------------------------------------");
             console.log("Going to play single player game");
+            clearBoard();
             singlePlayerGame();
             console.log("Clicked P1");
         
@@ -105,6 +116,7 @@ $(".player").on("click",function()
         // var clickedID = "#P2";
         console.log("----------------------------------------------");
             console.log("Going to play two player game");
+            clearBoard();
             twoPlayerGame();
             console.log("Clicked on P2");
         console.log("Game Over : " + gameOver+"\n");
@@ -116,7 +128,7 @@ $(".player").on("click",function()
         console.log("Game Over : "+gameOver+"\n");
 
             console.log("You have entered into !gameOver section");
-            console.log("The id before changing "+$(this).attr("id"));
+            console.log("The id before changing is "+$(this).attr("id"));
             var clickedID = $(this).attr("id");
             if(clickedID == "P2")
             {
@@ -208,22 +220,22 @@ function individualPaint(navHeading, buttonColour, mainAreaText, mainAreaBorder,
 
     if(buttonColour == "dark" || buttonColour == "black")
     {
-        $("#navbarButton").attr("class", "btn btn-outline-dark .navbar-button");
+        $("#navbarButton").attr("class", "btn btn-outline-dark navbar-button");
     }
     else if (buttonColour == "light" || buttonColour == "white") {
-        $("#navbarButton").attr("class", ".btn .btn-outline-light .navbar-button");
+        $("#navbarButton").attr("class", "btn btn-outline-light navbar-button");
     }
     else if (buttonColour == "success") {
-        $("#navbarButton").attr("class", ".btn .btn-outline-success .navbar-button");
+        $("#navbarButton").attr("class", "btn btn-outline-success navbar-button");
     }
     else if (buttonColour == "warning") {
-        $("#navbarButton").attr("class", ".btn .btn-outline-warning .navbar-button");
+        $("#navbarButton").attr("class", "btn btn-outline-warning navbar-button");
     }
     else if (buttonColour == "info") {
-        $("#navbarButton").attr("class", "btn .btn-outline-info navbar-button");
+        $("#navbarButton").attr("class", "btn btn-outline-info navbar-button");
     }
     else if (buttonColour == "primary") {
-        $("#navbarButton").attr("class", ".btn .btn-outline-primary .navbar-button");
+        $("#navbarButton").attr("class", "btn btn-outline-primary navbar-button");
     }
 
     // Main area text
@@ -290,131 +302,118 @@ function individualPaint(navHeading, buttonColour, mainAreaText, mainAreaBorder,
 function singlePlayerGame(){
     console.log("This is single player game");
     var id;
+    
     cellsClicked = [];
     cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
     var turn = 0;
     gameOver = false;
-
-        $(".cell").on("click", function () {
+    $(".cell").on("click", function () 
+    {
+        if ($("#P1").hasClass("player-selected")) 
+        {
             id = $(this).attr("id");
-            // $("#"+id+" i").addClass("fa fa-times fa-5x");
-            // console.log("Inserted fa fa-times fa-5x in "+id);
             if (search(cellsClicked,id) >= 0)
             {
                 console.log("Already clicked : "+id);
             }
             else{
                 turn+=1;
+                console.log("The current value of the turn is "+turn);
                 insertSymbol(id,turn);
                 cellsClicked.push(id);
-                console.log("Index of "+id+" in ");
                 cellsNotClicked.splice(search(cellsNotClicked, id),1);
                 gameOver = checkBoard(id, turn - 1);
                 console.log("Cells : " + cellsClicked + "\n" + "ID : " + id);
                 console.log("Current contents of cellsNotClicked are : " + cellsNotClicked);
 
+                if((!gameOver) && turn !=9)
+                {   
                 turn+=1;
+                    console.log("The current value of the turn is " + turn);
                 console.log("Before entering into insertInRandomCell function");
                 insertInRandomCell(turn);
                 console.log("Inserted X in random cell");
                 console.log("Cells : " + cellsClicked + "\n" + "ID : " + id);
                 console.log("Current contents of cellsNotClicked are : " + cellsNotClicked);
+                }
 
                 if ((turn == 9) && !gameOver) {
                     alert("Game is a draw!");
                     console.log("Game is a draw!");
-                    // cellsClicked = [];
-                    // cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
-                    // turn = 0;
                     gameOver = true;
+                }
+                if (gameOver) {
+                    console.log("Thank You! Game Over");
+                    clearBoard();
+                    cellsClicked = [];
+                    cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
+                    turn = 0;
+                    $("#scoreX").removeClass("score-cell-selected box-shadow-left").addClass("score-cell-unselected");
+                    $("#scoreO").addClass("score-cell-selected box-shadow-right").removeClass("score-cell-unselected");
+                    // singlePlayerGame();
                 }
 
             }
             
-            if (gameOver) {
-                // $("#cell1 i").hide(500).show(500);
-                // $("#cell2 i").hide(500).show(500);
-                // $("#cell3 i").hide(500).show(500);
-                console.log("Thank You! Game Over");
-                clearBoard();
-                cellsClicked = [];
-                cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
-                turn = 0;
-                // singlePlayerGame();
-            }
 
-        });
-
-
-    // if (turn == 9 || turn == 0) {
-        
-    //     gameOver = true;
-    //     if (turn == 9)
-    //     {
-    //         console.log("Game is a draw!");
-    //         cellsClicked = [];
-    //         turn = 0;
-    //     }
-    // }
-
+        }
+    }
+    );
+    clearBoard();
 }
 
 
 function twoPlayerGame() {
     console.log("This is two player game");
+    
     var id;
+    // clearBoard();
     cellsClicked = [];
-    cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
+    // cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
     var turn = 0;
     gameOver = false;
     $(".cell").on("click", function () {
-        id = $(this).attr("id");
-        // $("#"+id+" i").addClass("fa fa-times fa-5x");
-        // console.log("Inserted fa fa-times fa-5x in "+id);
-        if (search(cellsClicked, id) >= 0) {
-            console.log("Already clicked : " + id);
-        }
-        else {
+        if ($("#P2").hasClass("player-selected"))
+        {
+            id = $(this).attr("id");
+            if (search(cellsClicked, id) >= 0) {
+                console.log("Already clicked : " + id);
+            }
+            else 
+            {
             turn += 1;
             insertSymbol(id, turn);
             cellsClicked.push(id);
-            cellsNotClicked.splice(search(cellsNotClicked, id),1);
+            // cellsNotClicked.splice(search(cellsNotClicked, id),1);
             gameOver = checkBoard(id, turn - 1);
             console.log("Cells : " + cellsClicked + "\n" + "ID : " + id);
-            console.log("Current contents of cellsNotClicked are : " + cellsNotClicked);
+            // console.log("Current contents of cellsNotClicked are : " + cellsNotClicked);
             if ((turn == 9) && !gameOver) {
                 alert("Game is a draw!");
                 console.log("Game is a draw!");
                 cellsClicked = [];
-                cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
+                // cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
                 turn = 0;
                 gameOver = true;
             }
             if (gameOver) {
-                // $("#cell1 i").hide(500).show(500);
-                // $("#cell2 i").hide(500).show(500);
-                // $("#cell3 i").hide(500).show(500);
                 console.log("Thank You! Game Over");
                 clearBoard();
                 cellsClicked = [];
-                cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
+                // cellsNotClicked = ["cell1", "cell2", "cell3", "cell4", "cell5", "cell6", "cell7", "cell8", "cell9"];
                 turn = 0;
+                $("#scoreX").removeClass("score-cell-selected box-shadow-left").addClass("score-cell-unselected");
+                $("#scoreO").addClass("score-cell-selected box-shadow-right").removeClass("score-cell-unselected");
                 // singlePlayerGame();
+                }  
             }
+
         }
-
     });
-    // if (turn == 9 || turn == 0) {
-
-    //     gameOver = true;
-    //     if (turn == 9)
-    //     {
-    //         console.log("Game is a draw!");
-    //         cellsClicked = [];
-    //         turn = 0;
-    //     }
-    // }
+    clearBoard();
 }
+
+
 
 
 
@@ -446,20 +445,23 @@ function insertSymbol(id, turn){
 function checkBoard(id, index)
 {
     var row = checkRow(id, index);
-    var col = checkColumn(id, index);
-    var diag = checkDiagonal(id, index);
-
+    if (!row)
+    {
+        var col = checkColumn(id, index);
+        if (!col)
+            var diag = checkDiagonal(id, index);
+    }
     return  row || col || diag;
 }
 
 
 function checkRow(id, index) {
     
-    var i,j=0,temp;
+    var i,j=0,temp = "";
     var rowValue = [];
     for (i = index%2;i<cellsClicked.length;i+=2)
     {
-        temp = cellsClicked[i];
+        temp = String(cellsClicked[i]);
         rowValue[j] = parseInt(temp[temp.length - 1]);
         j++;
 
@@ -473,6 +475,8 @@ function checkRow(id, index) {
                 if ( index % 2 == 0)
                 {
                     alert("O Won");
+                    scoreO++;
+                    updateScore();
                     console.log("Row 1 , Winner O");
                     return true;
                 }
@@ -480,6 +484,8 @@ function checkRow(id, index) {
                 else if (index % 2 == 1)
                 {
                     alert("X Won");
+                    scoreX++;
+                    updateScore();
                     console.log("Row 1 , Winner X");
                     return true;
                 }
@@ -489,12 +495,18 @@ function checkRow(id, index) {
         {
             console.log("Row 2 Check Done!");
             if (index % 2 == 0) {
-                alert("O Won"); console.log("Row 2 , Winner O");
+                alert("O Won");
+                scoreO++;
+                updateScore();
+                console.log("Row 2 , Winner O");
                 return true;
             }
 
             else if (index % 2 == 1) {
-                alert("X Won"); console.log("Row 2 , Winner X");
+                alert("X Won");
+                scoreX++;
+                updateScore();
+                console.log("Row 2 , Winner X");
                 return true;
             }
             
@@ -503,12 +515,18 @@ function checkRow(id, index) {
            {
             console.log("Row 3 Check Done!");
             if (index % 2 == 0) {
-                    alert("O Won"); console.log("Row 3 , Winner O");
+                    alert("O Won");
+                    scoreO++;
+                    updateScore();
+                    console.log("Row 3 , Winner O");
                 return true;
             }
 
             else if (index % 2 == 1) {
-                    alert("X Won"); console.log("Row 3 , Winner X");
+                    alert("X Won");
+                    scoreX++;
+                    updateScore();
+                    console.log("Row 3 , Winner X");
                 return true;
             }
         }
@@ -519,10 +537,10 @@ function checkRow(id, index) {
 
 function checkColumn(id, index) {
 
-    var i, j = 0, temp;
+    var i, j = 0, temp="";
     var columnValue = [];
     for (i = index % 2; i < cellsClicked.length; i += 2) {
-        temp = cellsClicked[i];
+        temp = String(cellsClicked[i]);
         columnValue[j] = parseInt(temp[temp.length - 1]);
         j++;
     }
@@ -532,12 +550,18 @@ function checkColumn(id, index) {
         {
             console.log("Column 1 Check Done!");
             if (index % 2 == 0) {
-                alert("O Won"); console.log("Column 1 , Winner O");
+                alert("O Won");
+                scoreO++;
+                updateScore();
+                console.log("Column 1 , Winner O");
                 return true;
             }
 
             else if (index % 2 == 1) {
-                alert("X Won"); console.log("Column 1 , Winner X");
+                alert("X Won");
+                scoreX++;
+                updateScore();
+                 console.log("Column 1 , Winner X");
                 return true;
             }
         }
@@ -545,12 +569,18 @@ function checkColumn(id, index) {
            {
             console.log("Column 2 Check Done!");
             if (index % 2 == 0) {
-                alert("O Won"); console.log("Column 2 , Winner O");
+                alert("O Won");
+                scoreO++;
+                updateScore();
+                 console.log("Column 2 , Winner O");
                 return true;
             }
 
             else if (index % 2 == 1) {
-                alert("X Won"); console.log("Column 2 , Winner X");
+                alert("X Won");
+                scoreX++;
+                updateScore();
+                 console.log("Column 2 , Winner X");
                 return true;
             }
            }
@@ -558,12 +588,18 @@ function checkColumn(id, index) {
             {
             console.log("Column 3 Check Done!");
             if (index % 2 == 0) {
-                alert("O Won"); console.log("Column 3 , Winner O");
+                alert("O Won");
+                scoreO++;
+                updateScore();
+                 console.log("Column 3 , Winner O");
                 return true;
             }
 
             else if (index % 2 == 1) {
-                alert("X Won"); console.log("Column 3 , Winner X");
+                alert("X Won");
+                scoreX++;
+                updateScore();
+                 console.log("Column 3 , Winner X");
                 return true;
             }
             }
@@ -574,10 +610,10 @@ function checkColumn(id, index) {
 
 function checkDiagonal(id, index) {
 
-    var i, j = 0, temp;
+    var i, j = 0, temp = "";
     var diagonalValue = [];
     for (i = index % 2; i < cellsClicked.length; i += 2) {
-        temp = cellsClicked[i];
+        temp = String(cellsClicked[i]);
         diagonalValue[j] = parseInt(temp[temp.length - 1]);
         j++;
     }
@@ -587,12 +623,18 @@ function checkDiagonal(id, index) {
         {
             console.log("Diagonal 1 Check Done!");
             if (index % 2 == 0) {
-                alert("O Won"); console.log("Diagonal 1 , Winner O");
+                alert("O Won");
+                scoreO++;
+                updateScore();
+                 console.log("Diagonal 1 , Winner O");
                 return true;
             }
 
             else if (index % 2 == 1) {
-                alert("X Won"); console.log("Diagonal 1 , Winner X");
+                alert("X Won");
+                scoreX++;
+                updateScore();
+                 console.log("Diagonal 1 , Winner X");
                 return true;
             }
         }
@@ -600,12 +642,18 @@ function checkDiagonal(id, index) {
         {
             console.log("Diagonal 3 Check Done!");
             if (index % 2 == 0) {
-                alert("O Won"); console.log("Diagonal 3 , Winner O");
+                alert("O Won");
+                scoreO++;
+                updateScore();
+                console.log("Diagonal 3 , Winner O");
                 return true;
             }
 
             else if (index % 2 == 1) {
-                alert("X Won"); console.log("Diagonal 3 , Winner X");
+                alert("X Won");
+                scoreX++;
+                updateScore();
+                console.log("Diagonal 3 , Winner X");
                 return true;
             }
         }
@@ -614,12 +662,6 @@ function checkDiagonal(id, index) {
     return false;
 }
 
-function winningAnimation(id1, id2, id3)
-{
-    $("#"+id1+" i").hide(500).show(500);
-    $("#" + id2 + " i").hide(500).show(500);
-    $("#" + id3 + " i").hide(500).show(500);
-}
 
 function clearBoard()
 {
@@ -631,9 +673,9 @@ function insertInRandomCell(turn)
 {
     var value, idString;
     console.log("Entered into insertInRandomCell() function");
-    value = Math.floor(Math.random()*cellsNotClicked.length)+1;
+    value = Math.floor(Math.random()*cellsNotClicked.length);
     console.log("Random value is "+value);
-    idString = "cell" + String(value);
+    idString = cellsNotClicked[value];
     console.log("The random cell is "+idString);
     if (search(cellsClicked, idString) == -1)
     {
@@ -646,4 +688,10 @@ function insertInRandomCell(turn)
         return idString;
     }
     
+}
+
+function updateScore()
+{
+    $("#Xvalue").html(scoreX);
+    $("#Ovalue").html(scoreO);
 }

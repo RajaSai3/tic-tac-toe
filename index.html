@@ -158,7 +158,7 @@
                 </div>
 
                 <div class="offset-2 col-4 mr-0 order-sm-last">
-                  <span class="score-value">3</span>
+                  <span class="score-value" id="Xvalue">3</span>
                 </div>
               </div>
             </div>
@@ -172,7 +172,7 @@
               <div class="row">
                 
                 <div class="offset-2 col-4 mr-0">
-                  <span class="score-value">3</span>
+                  <span class="score-value" id="Ovalue">3</span>
                 </div>
                 
                 <div class="col-4 ml-5">
@@ -219,6 +219,8 @@
 
       <div class="row game-board content" id="gameBoard">
         <!-- <div class="col-sm-6 col-lg-4" id="mainBoard"> -->
+
+        <div class="col-12">
           <table class="main-table mx-auto">
 
           <tr>
@@ -257,11 +259,13 @@
             </td>
           </tr>
 
-
-
-        <!-- </div> -->
-      </div>
-    </div>
+          </table>
+          </div>
+          
+          <!-- <div class="col-12"> -->
+            <button id="resetScore" class="btn btn-primary mx-auto mt-5">Reset Score</button>
+          <!-- </div> -->
+        </div>
     <!-- </div> -->
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
